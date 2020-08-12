@@ -1,0 +1,24 @@
+{
+  "name": "heseya/laravel-searchable",
+  "type": "library",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jędrzej Buliński"
+    }
+  ],
+  "require": {
+    "php": ">=7.3",
+    "illuminate/database": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Heseya\\Searchable\\": "src/"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
+}
