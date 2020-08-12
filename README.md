@@ -3,7 +3,7 @@
 
 ## Installation
 ```
-composer require heseya/searchable
+composer require heseya/laravel-searchable
 ```
 
 ## How to use it?
