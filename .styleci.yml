@@ -1,4 +1,6 @@
 preset: laravel
+risky: true
+version: 7
 
 disabled:
   - alpha_ordered_imports
@@ -7,6 +9,7 @@ disabled:
 
 enabled:
   - is_null
+  - dir_constant
   - phpdoc_order
   - phpdoc_property
   - phpdoc_separation
