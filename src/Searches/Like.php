@@ -8,6 +8,6 @@ final class Like extends Search
 {
     public function query(Builder $query): Builder
     {
-        return $query->where($this->key, 'LIKE', '%' . $this->value . '%');
+        return $query->where($this->key, 'LIKE', '%'.$this->value.'%');
     }
 }

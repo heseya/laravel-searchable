@@ -7,20 +7,20 @@ use Illuminate\Database\Eloquent\Builder;
 abstract class Search
 {
     /**
-     * @var string $key
+     * @var string
      */
     protected $key;
 
     /**
-     * @var mixed $value
+     * @var mixed
      */
     protected $value;
 
     /**
-     * @param string $key
+     * @param string     $key
      * @param mixed|null $value
      */
-    function __construct (string $key, $value = null)
+    public function __construct(string $key, $value = null)
     {
         $this->key = $key;
         $this->value = $value;

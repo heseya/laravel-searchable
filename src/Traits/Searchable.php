@@ -26,11 +26,11 @@ trait Searchable
 
     /**
      * @param Builder $query
-     * @param array $params
-     *
-     * @return Builder
+     * @param array   $params
      *
      * @throws Exception
+     *
+     * @return Builder
      */
     public function scopeSearch(Builder $query, array $params = []): Builder
     {
@@ -49,18 +49,18 @@ trait Searchable
 
     /**
      * @param string $key
-     * @param mixed $value
-     *
-     * @return Search
+     * @param mixed  $value
      *
      * @throws Exception
+     *
+     * @return Search
      */
     private function getSearchType(string $key, $value): Search
     {
         $search = $this->getParamClass($key);
 
         if (!is_subclass_of($search, Search::class)) {
-            throw new Exception($search . ' must be instance of SearchType');
+            throw new Exception($search.' must be instance of SearchType');
         }
 
         return new $search($key, $value);
