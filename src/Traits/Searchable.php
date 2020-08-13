@@ -10,11 +10,6 @@ use Illuminate\Database\Eloquent\Builder;
 trait Searchable
 {
     /**
-     * @var array
-     */
-    protected $searchable = [];
-
-    /**
      * Get default search type.
      *
      * @return string Class name
@@ -22,6 +17,16 @@ trait Searchable
     protected function getDefaultSearchType(): string
     {
         return Equals::class;
+    }
+
+    /**
+     * Get searchable fields.
+     *
+     * @return array
+     */
+    protected function getSearchable(): array
+    {
+        return $this->searchable ?? [];
     }
 
     /**
@@ -73,7 +78,7 @@ trait Searchable
      */
     private function isParamSearchable(string $param): bool
     {
-        return array_key_exists($param, $this->searchable) || in_array($param, $this->searchable);
+        return array_key_exists($param, $this->getSearchable()) || in_array($param, $this->getSearchable());
     }
 
     /**
@@ -83,6 +88,6 @@ trait Searchable
      */
     private function getParamClass(string $param): string
     {
-        return $this->searchable[$param] ?? $this->getDefaultSearchType();
+        return $this->getSearchable()[$param] ?? $this->getDefaultSearchType();
     }
 }
