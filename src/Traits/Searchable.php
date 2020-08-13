@@ -28,9 +28,9 @@ trait Searchable
      * @param Builder $query
      * @param array $params
      *
-     * @return Builder
-     *
      * @throws Exception
+     *
+     * @return Builder
      */
     public function scopeSearch(Builder $query, array $params = []): Builder
     {
@@ -51,9 +51,9 @@ trait Searchable
      * @param string $key
      * @param mixed $value
      *
-     * @return Search
-     *
      * @throws Exception
+     *
+     * @return Search
      */
     private function getSearchType(string $key, $value): Search
     {
