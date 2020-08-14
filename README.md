@@ -10,7 +10,7 @@
 
 ## Installation
 ```
-composer require heseya/laravel-searchable
+$ composer require heseya/laravel-searchable
 ```
 
 ## How to use it?
@@ -74,6 +74,13 @@ class User extends Model
         return Equals::class;
     }
 }
+```
+
+## Testing
+To run the tests, run the following command from the project folder.
+
+```
+$ composer test
 ```
 
 ## License
