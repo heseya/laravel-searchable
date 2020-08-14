@@ -1,9 +1,16 @@
 # Heseya\Searchable
+
+
+[![StyleCI](https://github.styleci.io/repos/286227561/shield?branch=master)](https://github.styleci.io/repos/286227561)
+[![Packagist Version](https://img.shields.io/packagist/v/heseya/laravel-searchable.svg?style=flat-square)](https://packagist.org/packages/league/flysystem)
+[![Total Downloads](https://img.shields.io/packagist/dt/heseya/laravel-searchable.svg?style=flat-square)](https://packagist.org/packages/league/flysystem)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+
 🔍 Search trait for Eloquent models.
 
 ## Installation
 ```
-composer require heseya/laravel-searchable
+$ composer require heseya/laravel-searchable
 ```
 
 ## How to use it?
@@ -67,6 +74,13 @@ class User extends Model
         return Equals::class;
     }
 }
+```
+
+## Testing
+To run the tests, run the following command from the project folder.
+
+```
+$ composer test
 ```
 
 ## License
