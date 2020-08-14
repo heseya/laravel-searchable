@@ -3,8 +3,8 @@
 namespace Tests\Models;
 
 use Heseya\Searchable\Searches\Like;
-use Heseya\Searchable\Traits\Searchable;
 use Illuminate\Database\Eloquent\Model;
+use Heseya\Searchable\Traits\Searchable;
 
 class User extends Model
 {
