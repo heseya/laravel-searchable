@@ -2,8 +2,8 @@
 
 
 [![StyleCI](https://github.styleci.io/repos/286227561/shield?branch=master)](https://github.styleci.io/repos/286227561)
-[![Packagist Version](https://img.shields.io/packagist/v/heseya/laravel-searchable.svg?style=flat-square)](https://packagist.org/packages/league/flysystem)
-[![Total Downloads](https://img.shields.io/packagist/dt/heseya/laravel-searchable.svg?style=flat-square)](https://packagist.org/packages/league/flysystem)
+[![Packagist Version](https://img.shields.io/packagist/v/heseya/laravel-searchable.svg?style=flat-square)](https://packagist.org/packages/heseya/laravel-searchable)
+[![Total Downloads](https://img.shields.io/packagist/dt/heseya/laravel-searchable.svg?style=flat-square)](https://packagist.org/packages/heseya/laravel-searchable)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
 🔍 Search trait for Eloquent models.
