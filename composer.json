@@ -1,8 +1,9 @@
 {
   "name": "heseya/laravel-searchable",
   "type": "library",
-  "description": "description",
-  "minimum-stability": "stable",
+  "description": "Search trait for Eloquent models",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "license": "MIT",
   "authors": [
     {
@@ -13,12 +14,23 @@
     "php": ">=7.3",
     "illuminate/database": ">=7.0"
   },
+  "require-dev": {
+    "pestphp/pest": "^0.2.4"
+  },
   "autoload": {
     "psr-4": {
       "Heseya\\Searchable\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
   "config": {
     "sort-packages": true
+  },
+  "scripts": {
+    "test": "./vendor/bin/pest"
   }
 }
