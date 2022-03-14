@@ -10,7 +10,7 @@
 
 ## Installation
 ```
-$ composer require heseya/laravel-searchable
+$ composer require heseya/laravel-searchables
 ```
 
 ## How to use it?
@@ -20,7 +20,7 @@ class User extends Model
     use HasCriteria;
 
     protected $criteria = [
-        'id', // default search
+        'id', // default criterion
         'email' => Equals::class,
         'name' => Like::class,
         'description' => Custom::class,
@@ -38,7 +38,7 @@ class Controller
             'name' => 'John'
         ])->get();
 
-        // you can extends query
+        // you can extend query
 
         User::searchByCriteria($request->all())
             ->where('public', true)
@@ -65,11 +65,11 @@ final class CustomCriterion extends Criterion
 
 ```
 
-## Change default search for model
+## Change default criterion in model
 ```php
 class User extends Model
 {
-    protected function getDefaultSearchType(): string
+    protected function getDefaultCriterion(): string
     {
         return Equals::class;
     }
