@@ -6,6 +6,7 @@ disabled:
   - concat_without_spaces
   - not_operator_with_successor_space
   - laravel_phpdoc_order
+  - laravel_phpdoc_separation
 
 enabled:
   - is_null
