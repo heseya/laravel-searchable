@@ -30,8 +30,8 @@ trait HasCriteria
     }
 
     /**
-     * @param Builder $query
-     * @param array $params
+     * @param  Builder  $query
+     * @param  array  $params
      *
      * @throws Exception
      *
@@ -53,8 +53,8 @@ trait HasCriteria
     }
 
     /**
-     * @param string $key
-     * @param mixed $value
+     * @param  string  $key
+     * @param  mixed  $value
      *
      * @throws Exception
      *
@@ -72,7 +72,7 @@ trait HasCriteria
     }
 
     /**
-     * @param string $param
+     * @param  string  $param
      *
      * @return bool
      */
@@ -88,7 +88,7 @@ trait HasCriteria
     }
 
     /**
-     * @param string $param
+     * @param  string  $param
      *
      * @return string
      */
