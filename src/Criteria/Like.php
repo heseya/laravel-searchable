@@ -1,10 +1,10 @@
 <?php
 
-namespace Heseya\Searchable\Searches;
+namespace Heseya\Searchable\Criteria;
 
 use Illuminate\Database\Eloquent\Builder;
 
-final class Like extends Search
+final class Like extends Criterion
 {
     public function query(Builder $query): Builder
     {

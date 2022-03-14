@@ -15,7 +15,7 @@
     "illuminate/database": ">=7.0"
   },
   "require-dev": {
-    "pestphp/pest": "^0.2.4"
+    "pestphp/pest": "^1.21"
   },
   "autoload": {
     "psr-4": {

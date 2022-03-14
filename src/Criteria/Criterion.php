@@ -1,10 +1,10 @@
 <?php
 
-namespace Heseya\Searchable\Searches;
+namespace Heseya\Searchable\Criteria;
 
 use Illuminate\Database\Eloquent\Builder;
 
-abstract class Search
+abstract class Criterion
 {
     /**
      * @var string
@@ -17,8 +17,8 @@ abstract class Search
     protected $value;
 
     /**
-     * @param string $key
-     * @param mixed|null $value
+     * @param  string  $key
+     * @param  mixed|null  $value
      */
     public function __construct(string $key, $value = null)
     {
@@ -27,7 +27,7 @@ abstract class Search
     }
 
     /**
-     * @param Builder $query
+     * @param  Builder  $query
      *
      * @return Builder
      */
