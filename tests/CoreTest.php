@@ -19,15 +19,15 @@ beforeEach(function () {
 test('can search', function () {
     $query = User::searchByCriteria();
 
-    assertInstanceOf(Builder::class, $query);
-    assertEquals('select * from "users"', $query->toSql());
+    expect($query)->toBeInstanceOf(Builder::class);
+    expect($query->toSql())->toBe('select * from "users"');
 });
 
 test('can search with additional query', function () {
     $query = User::searchByCriteria()->where('public', true);
 
-    assertInstanceOf(Builder::class, $query);
-    assertEquals('select * from "users" where "public" = ?', $query->toSql());
+    expect($query)->toBeInstanceOf(Builder::class);
+    expect($query->toSql())->toBe('select * from "users" where "public" = ?');
 });
 
 test('can`t search not searchable param', function () {
@@ -35,8 +35,8 @@ test('can`t search not searchable param', function () {
         'not_searchable_param' => 'test',
     ]);
 
-    assertInstanceOf(Builder::class, $query);
-    assertEquals('select * from "users"', $query->toSql());
+    expect($query)->toBeInstanceOf(Builder::class);
+    expect($query->toSql())->toBe('select * from "users"');
 });
 
 test('can search by default type', function () {
@@ -44,8 +44,8 @@ test('can search by default type', function () {
         'email' => 'test@example.com',
     ]);
 
-    assertInstanceOf(Builder::class, $query);
-    assertEquals('select * from "users" where "email" = ?', $query->toSql());
+    expect($query)->toBeInstanceOf(Builder::class);
+    expect($query->toSql())->toBe('select * from "users" where "email" = ?');
 });
 
 test('can search by custom type', function () {
@@ -53,6 +53,6 @@ test('can search by custom type', function () {
         'name' => 'test',
     ]);
 
-    assertInstanceOf(Builder::class, $query);
-    assertEquals('select * from "users" where "name" LIKE ?', $query->toSql());
+    expect($query)->toBeInstanceOf(Builder::class);
+    expect($query->toSql())->toBe('select * from "users" where "name" LIKE ?');
 });

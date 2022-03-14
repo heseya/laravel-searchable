@@ -9,6 +9,6 @@ test('asserts query create', function () {
     $search = new Like('key', 'value');
     $query = $search->query($query);
 
-    assertInstanceOf(Builder::class, $query);
-    assertEquals('select * from "users" where "key" LIKE ?', $query->toSql());
+    expect($query)->toBeInstanceOf(Builder::class);
+    expect($query->toSql())->toBe('select * from "users" where "key" LIKE ?');
 });
