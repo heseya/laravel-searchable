@@ -3,18 +3,18 @@
 namespace Heseya\Searchable\Traits;
 
 use Exception;
-use Heseya\Searchable\Searches\Equals;
-use Heseya\Searchable\Searches\Search;
+use Heseya\Searchable\Criteria\Criterion;
+use Heseya\Searchable\Criteria\Equals;
 use Illuminate\Database\Eloquent\Builder;
 
-trait Searchable
+trait HasCriteria
 {
     /**
      * Get default search type.
      *
      * @return string Class name
      */
-    protected function getDefaultSearchType(): string
+    protected function getDefaultCriterion(): string
     {
         return Equals::class;
     }
@@ -24,9 +24,9 @@ trait Searchable
      *
      * @return array
      */
-    protected function getSearchable(): array
+    protected function getCriteria(): array
     {
-        return $this->searchable ?? [];
+        return $this->criteria ?? [];
     }
 
     /**
@@ -37,14 +37,14 @@ trait Searchable
      *
      * @return Builder
      */
-    public function scopeSearch(Builder $query, array $params = []): Builder
+    public function scopeSearchByCriteria(Builder $query, array $params = []): Builder
     {
         foreach ($params as $key => $value) {
             if (!$this->isParamSearchable($key)) {
                 continue;
             }
 
-            $search = $this->getSearchType($key, $value);
+            $search = $this->getCriterion($key, $value);
 
             $query = $search->query($query);
         }
@@ -58,17 +58,17 @@ trait Searchable
      *
      * @throws Exception
      *
-     * @return Search
+     * @return Criterion
      */
-    private function getSearchType(string $key, $value): Search
+    private function getCriterion(string $key, $value): Criterion
     {
-        $search = $this->getParamClass($key);
+        $criterion = $this->getParamClass($key);
 
-        if (!is_subclass_of($search, Search::class)) {
-            throw new Exception($search . ' must be instance of SearchType');
+        if (!is_subclass_of($criterion, Criterion::class)) {
+            throw new Exception("$criterion must be instance of Criterion");
         }
 
-        return new $search($key, $value);
+        return new $criterion($key, $value);
     }
 
     /**
@@ -78,7 +78,13 @@ trait Searchable
      */
     private function isParamSearchable(string $param): bool
     {
-        return array_key_exists($param, $this->getSearchable()) || in_array($param, $this->getSearchable());
+        return array_key_exists(
+            $param,
+            $this->getCriteria(),
+        ) || in_array(
+            $param,
+            $this->getCriteria(),
+        );
     }
 
     /**
@@ -88,6 +94,6 @@ trait Searchable
      */
     private function getParamClass(string $param): string
     {
-        return $this->getSearchable()[$param] ?? $this->getDefaultSearchType();
+        return $this->getCriteria()[$param] ?? $this->getDefaultCriterion();
     }
 }

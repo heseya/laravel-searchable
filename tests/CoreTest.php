@@ -17,21 +17,21 @@ beforeEach(function () {
 });
 
 test('can search', function () {
-    $query = User::search();
+    $query = User::searchByCriteria();
 
     assertInstanceOf(Builder::class, $query);
     assertEquals('select * from "users"', $query->toSql());
 });
 
 test('can search with additional query', function () {
-    $query = User::search()->where('public', true);
+    $query = User::searchByCriteria()->where('public', true);
 
     assertInstanceOf(Builder::class, $query);
     assertEquals('select * from "users" where "public" = ?', $query->toSql());
 });
 
 test('can`t search not searchable param', function () {
-    $query = User::search([
+    $query = User::searchByCriteria([
         'not_searchable_param' => 'test',
     ]);
 
@@ -40,7 +40,7 @@ test('can`t search not searchable param', function () {
 });
 
 test('can search by default type', function () {
-    $query = User::search([
+    $query = User::searchByCriteria([
         'email' => 'test@example.com',
     ]);
 
@@ -49,7 +49,7 @@ test('can search by default type', function () {
 });
 
 test('can search by custom type', function () {
-    $query = User::search([
+    $query = User::searchByCriteria([
         'name' => 'test',
     ]);
 

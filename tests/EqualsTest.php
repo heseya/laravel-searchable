@@ -1,6 +1,6 @@
 <?php
 
-use Heseya\Searchable\Searches\Equals;
+use Heseya\Searchable\Criteria\Equals;
 use Illuminate\Database\Eloquent\Builder;
 use Tests\Models\User;
 

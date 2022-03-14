@@ -1,6 +1,6 @@
 # Heseya\Searchable
 
-
+[![Made by Heseya](https://img.shields.io/badge/Made%20by-Heseya-69001f?style=flat-square)](https://heseya.com)
 [![StyleCI](https://github.styleci.io/repos/286227561/shield?branch=master)](https://github.styleci.io/repos/286227561)
 [![Packagist Version](https://img.shields.io/packagist/v/heseya/laravel-searchable.svg?style=flat-square)](https://packagist.org/packages/heseya/laravel-searchable)
 [![Total Downloads](https://img.shields.io/packagist/dt/heseya/laravel-searchable.svg?style=flat-square)](https://packagist.org/packages/heseya/laravel-searchable)
@@ -17,9 +17,9 @@ $ composer require heseya/laravel-searchable
 ```php
 class User extends Model
 {
-    use Searchable;
+    use HasCriteria;
 
-    protected $searchable = [
+    protected $criteria = [
         'id', // default search
         'email' => Equals::class,
         'name' => Like::class,
@@ -33,27 +33,27 @@ class Controller
 {
     function index(Request $request)
     {
-        User::search([
+        User::searchByCriteria([
             'email' => 'example@example.com',
             'name' => 'John'
         ])->get();
 
         // you can extends query
 
-        User::search($request->all())
+        User::searchByCriteria($request->all())
             ->where('public', true)
             ->get();
     }
 }
 ```
 
-## Available searches
+## Available criteria
 - Equals
 - Like
 
-## Custom searches
+## Custom criterion
 ```php
-final class Custom extends Search
+final class CustomCriterion extends Criterion
 {
     public function query(Builder $query): Builder
     {

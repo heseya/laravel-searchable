@@ -1,10 +1,10 @@
 <?php
 
-namespace Heseya\Searchable\Searches;
+namespace Heseya\Searchable\Criteria;
 
 use Illuminate\Database\Eloquent\Builder;
 
-abstract class Search
+abstract class Criterion
 {
     /**
      * @var string

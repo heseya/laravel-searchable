@@ -2,15 +2,15 @@
 
 namespace Tests\Models;
 
-use Heseya\Searchable\Searches\Like;
-use Heseya\Searchable\Traits\Searchable;
+use Heseya\Searchable\Criteria\Like;
+use Heseya\Searchable\Traits\HasCriteria;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    use Searchable;
+    use HasCriteria;
 
-    protected $searchable = [
+    protected $criteria = [
         'email',
         'name' => Like::class,
     ];
