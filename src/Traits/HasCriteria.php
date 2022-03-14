@@ -30,12 +30,11 @@ trait HasCriteria
     }
 
     /**
-     * @param Builder $query
-     * @param array $params
+     * @param  Builder  $query
+     * @param  array  $params
+     * @return Builder
      *
      * @throws Exception
-     *
-     * @return Builder
      */
     public function scopeSearchByCriteria(Builder $query, array $params = []): Builder
     {
@@ -53,12 +52,11 @@ trait HasCriteria
     }
 
     /**
-     * @param string $key
-     * @param mixed $value
+     * @param  string  $key
+     * @param  mixed  $value
+     * @return Criterion
      *
      * @throws Exception
-     *
-     * @return Criterion
      */
     private function getCriterion(string $key, $value): Criterion
     {
@@ -72,8 +70,7 @@ trait HasCriteria
     }
 
     /**
-     * @param string $param
-     *
+     * @param  string  $param
      * @return bool
      */
     private function isParamSearchable(string $param): bool
@@ -88,8 +85,7 @@ trait HasCriteria
     }
 
     /**
-     * @param string $param
-     *
+     * @param  string  $param
      * @return string
      */
     private function getParamClass(string $param): string

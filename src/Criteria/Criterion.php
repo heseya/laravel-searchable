@@ -17,8 +17,8 @@ abstract class Criterion
     protected $value;
 
     /**
-     * @param string $key
-     * @param mixed|null $value
+     * @param  string  $key
+     * @param  mixed|null  $value
      */
     public function __construct(string $key, $value = null)
     {
@@ -27,8 +27,7 @@ abstract class Criterion
     }
 
     /**
-     * @param Builder $query
-     *
+     * @param  Builder  $query
      * @return Builder
      */
     abstract public function query(Builder $query): Builder;
